@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/mihsa/CLionProjects/KDZtest/sortAlg.cpp
+sortAlg.h
+C:/Users/mihsa/CLionProjects/KDZtest/sortAlg.h
+chrono
+-
+fstream
+-
+
+C:/Users/mihsa/CLionProjects/KDZtest/sortAlg.h
+iostream
+-
+vector
+-
+fstream
+-
+

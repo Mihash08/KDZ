@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
-project(KDZ)
+project(KDZtest)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(KDZ main.cpp)
+add_executable(KDZtest main.cpp sortAlg.cpp sortAlg.h)

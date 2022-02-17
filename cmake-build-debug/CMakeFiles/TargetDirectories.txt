@@ -1,0 +1,3 @@
+C:/Users/mihsa/CLionProjects/KDZtest/cmake-build-debug/CMakeFiles/KDZtest.dir
+C:/Users/mihsa/CLionProjects/KDZtest/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/mihsa/CLionProjects/KDZtest/cmake-build-debug/CMakeFiles/rebuild_cache.dir
