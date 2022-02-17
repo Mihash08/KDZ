@@ -5,6 +5,7 @@
 #include "sortAlg.h"
 #include <chrono>
 #include <fstream>
+#include <utility>
 
  bool sortAlg::checkSorted(std::vector<int> vector) {
     if (vector.empty()) {
@@ -67,7 +68,7 @@ std::vector<int> sortAlg::selectionSort(std::vector<int> vector) {
     return vector;
 }
 
-std::string recordSortTime(int i, std::vector<int> vector, std::string (*f)(std::vector<int>)) {
+std::string recordSortTime(int i, std::vector<int> vector, std::vector<int> (*f)(std::vector<int>)) {
     std::vector<int> sorting_vector = std::vector<int>();
     for (int j = 0; j < i; ++j) {
         sorting_vector.push_back(vector[i]);
@@ -85,53 +86,14 @@ std::string recordSortTime(int i, std::vector<int> vector, std::string (*f)(std:
 }
 
 std::string sortAlg::recordSelectionTime(int i, std::vector<int> vector) {
-    std::vector<int> sorting_vector = std::vector<int>();
-    for (int j = 0; j < i; ++j) {
-        sorting_vector.push_back(vector[i]);
-    }
-    std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
-    sortAlg::selectionSort(sorting_vector);
-    if (!(sortAlg::checkSorted(sorting_vector))) {
-        return "SORTING ERROR!!!!\n";
-    } else {
-        std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
-        return "Time difference = " +
-        std::to_string(std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin).count()) +
-        "[ns]\n";
-    }
+    return recordSortTime(i, std::move(vector), sortAlg::selectionSort);
 }
 
 std::string sortAlg::recordBubbleTime(int i, std::vector<int> vector) {
-    std::vector<int> sorting_vector = std::vector<int>();
-    for (int j = 0; j < i; ++j) {
-        sorting_vector.push_back(vector[i]);
-    }
-    std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
-    sortAlg::bubbleSort(sorting_vector);
-    if (!(sortAlg::checkSorted(sorting_vector))) {
-        return "SORTING ERROR!!!!\n";
-    } else {
-        std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
-        return "Time difference = " +
-               std::to_string(std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin).count()) +
-               "[ns]\n";
-    }
+    return recordSortTime(i, std::move(vector), sortAlg::bubbleSort);
 }
 
 std::string sortAlg::recordSimpleInsertTime(int i, std::vector<int> vector) {
-    std::vector<int> sorting_vector = std::vector<int>();
-    for (int j = 0; j < i; ++j) {
-        sorting_vector.push_back(vector[i]);
-    }
-    std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
-    sortAlg::simpleInsert(sorting_vector);
-    if (!(sortAlg::checkSorted(sorting_vector))) {
-        return "SORTING ERROR!!!!\n";
-    } else {
-        std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
-        return "Time difference = " +
-               std::to_string(std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin).count()) +
-               "[ns]\n";
-    }
+    return recordSortTime(i, std::move(vector), sortAlg::simpleInsert);
 }
 
