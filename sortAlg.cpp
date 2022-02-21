@@ -68,6 +68,36 @@ std::vector<int> sortAlg::selectionSort(std::vector<int> vector) {
     return vector;
 }
 
+int binSearch(int left, int right, int64_t value, std::vector<int> vector) {
+    int middle = -1;
+    while (right >= left) {
+        middle = (right + left) / 2;
+
+        if (vector[middle] == value) {
+            return middle;
+        }
+
+        if (value < vector[middle]) {
+            right = middle - 1;
+        } else {
+            left = middle + 1;
+        }
+    }
+    return left;
+}
+
+std::vector<int> sortAlg::binaryInsert(std::vector<int> vector) {
+    for (int i = 0; i < vector.size(); ++i) {
+        int j = i - 1;
+        int k = binSearch(0, j, vector[i], vector);
+        for (int l = j; l >= k && l >= 0; --l) {
+            std::swap(vector[l], vector[l + 1]);
+        }
+    }
+    return vector;
+
+}
+
 std::string recordSortTime(int i, std::vector<int> vector, std::vector<int> (*f)(std::vector<int>)) {
     std::vector<int> sorting_vector = std::vector<int>();
     for (int j = 0; j < i; ++j) {
@@ -95,5 +125,9 @@ std::string sortAlg::recordBubbleTime(int i, std::vector<int> vector) {
 
 std::string sortAlg::recordSimpleInsertTime(int i, std::vector<int> vector) {
     return recordSortTime(i, std::move(vector), sortAlg::simpleInsert);
+}
+
+std::string sortAlg::recordBinaryInsertTime (int i, std::vector<int> vector) {
+    return recordSortTime(i, std::move(vector), sortAlg::binaryInsert);
 }
 

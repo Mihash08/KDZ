@@ -9,7 +9,6 @@
 
 
 int main() {
-    //sortAlg::sorting_vector = std::vector<int>();
     std::vector<int> vector_0_5 = std::vector<int>();
     std::vector<int> vector_0_4000 = std::vector<int>();
     std::vector<int> vector_4100_1_reverse = std::vector<int>();
@@ -271,6 +270,84 @@ int main() {
     std::cout << "\n\n100-4100 [0,4000] reverse\n\n";
     for (int i = 100; i <= 4100; i += 100) {
         sortAlg::recordSimpleInsertTime(i, vector_4100_1_reverse);
+    }
+    file_stream.close();
+
+
+    //
+    //
+    //BINARY INSERT SORT-------------------------------------------------------------------------------------------------------
+
+    //------------------------------------------------------------------------------------------------------------------
+    //50-300 0-5
+    file_stream.open("dat\\binsert\\50-300 0-5.txt");
+    std::cout << "50-300 [0,5]\n";
+    for (int i = 50; i <= 300; i += 10) {
+        sortAlg::recordBinaryInsertTime(i, vector_0_5);
+    }
+    file_stream.close();
+
+    //------------------------------------------------------------------------------------------------------------------
+    //50-300 0-4000
+    file_stream.open("dat\\binsert\\50-300 0-4000.txt");
+    std::cout << "\n\n50-300 [0,4000]\n\n";
+    for (int i = 50; i <= 300; i += 10) {
+        sortAlg::recordBinaryInsertTime(i, vector_0_4000);
+    }
+    file_stream.close();
+
+    //------------------------------------------------------------------------------------------------------------------
+    //50-300 0-4000 almost sorted
+    file_stream.open("dat\\binsert\\50-300 0-4000 almost sorted.txt");
+    std::cout << "\n\n50-300 [0,4000] almost sorted\n\n";
+    for (int i = 50; i <= 300; i += 10) {
+        sortAlg::recordBinaryInsertTime(i, vector_0_4000_almost);
+    }
+    file_stream.close();
+
+    //------------------------------------------------------------------------------------------------------------------
+    //50-300 0-4000 reverse
+    file_stream.open("dat\\binsert\\50-300 0-4000 reverse.txt");
+    std::cout << "\n\n50-300 [0,4000] reverse\n\n";
+    for (int i = 50; i <= 300; i += 10) {
+        sortAlg::recordBinaryInsertTime(i, vector_4100_1_reverse);
+    }
+    file_stream.close();
+
+    //------------------------------------------------------------------------------------------------------------------
+    //100-4100 0-5
+    file_stream.open("dat\\binsert\\100-4100 0-5.txt");
+    std::cout << "\n\n100-4100 [0,5]\n\n";
+    for (int i = 100; i <= 4100; i += 100) {
+        sortAlg::recordBinaryInsertTime(i, vector_0_5);
+    }
+    file_stream.close();
+
+
+    //------------------------------------------------------------------------------------------------------------------
+    //100-4100 0-4000
+    file_stream.open("dat\\binsert\\100-4100 0-4000.txt");
+    std::cout << "\n\n100-4100 [0,4000]\n\n";
+    for (int i = 100; i <= 4100; i += 100) {
+        sortAlg::recordBinaryInsertTime(i, vector_0_4000);
+    }
+    file_stream.close();
+
+    //------------------------------------------------------------------------------------------------------------------
+    //100-4100 0-4000 almost sorted
+    file_stream.open("dat\\binsert\\100-4100 0-4000 almost sorted.txt");
+    std::cout << "\n\n100-4100 [0,4000] almost sorted\n\n";
+    for (int i = 100; i <= 4100; i += 100) {
+        sortAlg::recordBinaryInsertTime(i, vector_0_4000_almost);
+    }
+    file_stream.close();
+
+    //------------------------------------------------------------------------------------------------------------------
+    //100-4100 0-4000 reverse
+    file_stream.open("dat\\binsert\\100-4100 0-4000 reverse.txt");
+    std::cout << "\n\n100-4100 [0,4000] reverse\n\n";
+    for (int i = 100; i <= 4100; i += 100) {
+        sortAlg::recordBinaryInsertTime(i, vector_4100_1_reverse);
     }
     file_stream.close();
 

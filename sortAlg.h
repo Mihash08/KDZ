@@ -18,6 +18,8 @@ public:
 
     static std::vector<int> simpleInsert(std::vector<int> vector);
 
+    static std::vector<int> binaryInsert(std::vector<int> vector);
+
     static bool checkSorted(std::vector<int> vector);
 
     static std::string recordSelectionTime(int i, std::vector<int> vector);
@@ -25,6 +27,8 @@ public:
     static std::string recordBubbleTime(int i, std::vector<int> vector);
 
     static std::string recordSimpleInsertTime (int i, std::vector<int> vector);
+
+    static std::string recordBinaryInsertTime (int i, std::vector<int> vector);
 };
 
 
